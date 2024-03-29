@@ -44,4 +44,6 @@ devices:
   '0x00124b002c3a283a':
     friendly_name: PlantLight
   '0x00124b002c3a3fcd':
-    friendly_name: 'OfficeValence'
+    friendly_name: OfficeValence
+  '0x00124b002fa16de3':
+    friendly_name: 'CoffeeMotion'
