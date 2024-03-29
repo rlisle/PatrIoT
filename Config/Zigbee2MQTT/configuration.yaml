@@ -42,4 +42,6 @@ devices:
   '0x00124b002a62f09e':
     friendly_name: RampDoor
   '0x00124b002c3a283a':
-    friendly_name: 'PlantLight'
+    friendly_name: PlantLight
+  '0x00124b002c3a3fcd':
+    friendly_name: 'OfficeValence'
