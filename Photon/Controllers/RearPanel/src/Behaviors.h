@@ -22,6 +22,7 @@
 #include "leftDeskLamp.h"
 #include "loftLights.h"
 #include "officeCeilingLights.h"
+#include "officeValence.h"
 #include "pianoLight.h"
 #include "rampAwningLight.h"
 #include "rampPorchLight.h"
@@ -36,6 +37,7 @@ void updateLights() {
     setLeftDeskLamp();
     setLoftLights();
     setOfficeCeilingLights();
+    setOfficeValence();
     setPianoLight();
     setRampAwningLight();
     setRampPorchLight();
