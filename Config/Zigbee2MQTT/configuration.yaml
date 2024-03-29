@@ -1,0 +1,45 @@
+homeassistant: false
+permit_join: true
+mqtt:
+  base_topic: patriot/zigbee
+  server: mqtt://localhost
+serial:
+  port: /dev/tty.usbserial-202311202101381
+advanced:
+  network_key:
+    - 22
+    - 167
+    - 211
+    - 98
+    - 3
+    - 175
+    - 242
+    - 78
+    - 3
+    - 222
+    - 229
+    - 43
+    - 9
+    - 130
+    - 174
+    - 249
+  homeassistant_legacy_entity_attributes: false
+  legacy_api: false
+  legacy_availability_payload: false
+device_options:
+  legacy: false
+devices:
+  '0xb0ce1814000dcdd0':
+    friendly_name: LeftDeskLamp
+  '0xb0ce1814000dc56a':
+    friendly_name: RightDeskLamp
+  '0xb0ce1814000dc403':
+    friendly_name: NookLamp
+  '0xb0ce1814000db8e9':
+    friendly_name: BedroomLamp
+  '0x00124b002a62f3dc':
+    friendly_name: FrontDoor
+  '0x00124b002a62f09e':
+    friendly_name: RampDoor
+  '0x00124b002c3a283a':
+    friendly_name: 'PlantLight'
