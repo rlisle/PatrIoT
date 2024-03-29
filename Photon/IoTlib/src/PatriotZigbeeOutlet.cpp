@@ -5,6 +5,10 @@
  Features:
  - 120vac outlet control
 
+ MQTT
+ patriot/zigbee/<device>/set {"state": "ON/OFF"}
+ eg. ppub zigbee/OfficeValence/set {/"state/":/"ON/"}
+
  Leverage capability of Sonoff S40 Lite Zigbee Smart Plug
  
  http://www.github.com/rlisle/Patriot
@@ -15,6 +19,7 @@
  All text above must be included in any redistribution.
 
  Datasheets:
+ https://www.zigbee2mqtt.io/devices/S40ZBTPB.html
 
  */
 
@@ -48,6 +53,7 @@ void ZigbeeOutlet::setValue(int value)
     String topic = "zigbee/" + _name + "/set";
     String state = "{\"state\":\"" + outputValue + "\"}";
     IoT::publishMQTT(topic, state);
+    _value = value;
 }
 
 /**

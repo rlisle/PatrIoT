@@ -97,7 +97,7 @@ void setup() {
     Device::add(new ZigbeeContact("RampDoor", "Office", handleRampDoor));
 
     // Zigbee Outlets
-    Device::add(new ZigbeeOutlet("OfficeOverheadLights", "Office"));
+    Device::add(new ZigbeeOutlet("OfficeValence", "Office"));
 
     setInitialState();
 }
