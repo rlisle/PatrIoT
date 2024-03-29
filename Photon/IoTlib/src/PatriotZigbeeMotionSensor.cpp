@@ -1,12 +1,16 @@
 /**
- Zigbee contact sensor control
+ Zigbee motion sensor control
  for use with Sonoff USB Zigbee adapter
 
  Features:
- - Magnetic contact detection
+ - PIR Motion detection
 
- Leverage capability of Sonoff SNZB-04 Wireless Door/Window Sensor.
+ Leverage capability of Sonoff SNZB-03 Wireless Motion Sensor.
  
+ MQTT:
+   patriot/zigbee/<name> {..., "occupancy": true/false, ...}
+   eg. patriot/zigbee/CoffeeMotion {"battery":100,"battery_low":false,"linkquality":255,"occupancy":true,"tamper":false,"voltage":3400}
+
  http://www.github.com/rlisle/Patriot
 
  Written by Ron Lisle
@@ -15,6 +19,7 @@
  All text above must be included in any redistribution.
 
  Datasheets:
+ - https://www.zigbee2mqtt.io/devices/SNZB-03.html
 
  */
 
@@ -22,21 +27,21 @@
 
 /**
  * Constructor
- * @param name String name used to address the light.
+ * @param name String name used to address the motion sensor.
  */
-ZigbeeContact::ZigbeeContact(String name, String room, void (*handler)(int,int))
-        : Device(name, room, 'D', handler)
+ZigbeeMotion::ZigbeeContact(String name, String room, void (*handler)(int,int))
+        : Device(name, room, 'M', handler)
 {
     // Nothing to do
 }
 
-void ZigbeeContact::begin() {
+void ZigbeeMotion::begin() {
     // Nothing to do
 }
 
-void ZigbeeContact::mqtt(String topic, String message) {
+void ZigbeeMotion::mqtt(String topic, String message) {
     // Parse patriot/zigbee/<device> 
-    // {"battery":100,"battery_low":false,"contact":true/false,"linkquality":156,"tamper":false,"voltage":3200}
+    // {"battery":100,"battery_low":false,"linkquality":255,"occupancy":true,"tamper":false,"voltage":3400}
     String subtopics[5];
     int start = 0;
     int end = topic.indexOf('/');
@@ -53,8 +58,8 @@ void ZigbeeContact::mqtt(String topic, String message) {
     if(numTopics == 2 && subtopics[0] == "zigbee") {
         Log.info("DEBUG: zigbee message received");
         if(subtopics[1] == name()) {  
-            Log.info("Zigbee contact sensor message to us");
-            //TODO: locate "contact" field
+            Log.info("Zigbee motion sensor message to us");
+            //TODO: locate "occupancy" 
 
         }
     }  
@@ -65,7 +70,7 @@ void ZigbeeContact::mqtt(String topic, String message) {
  * Called periodically to perform dimming, polling, etc.
  * but this is done by the Sengled light bulb itself.
  */
-void ZigbeeContact::loop()
+void ZigbeeMotion::loop()
 {
     //Nothing to do
 };
