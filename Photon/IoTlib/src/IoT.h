@@ -448,4 +448,20 @@ class ZigbeeOutlet : public Device {
     void      setValue(int value);
 };
 
+class ZigbeeMotion : public Device {
+ private:
+
+ public:
+    ZigbeeMotion(String name, String room, void (*handler)(int,int) = NULL);
+    void      begin();
+    void      loop();
+    
+    // Assumes the MQTT uses the same 'name'
+    void      mqtt(String topic, String message);   // Sent by Zigbee2MQTT
+
+    // Override to prevent MQTT from setting _percent.
+    void setValue(int percent) { return; };
+
+};
+
 

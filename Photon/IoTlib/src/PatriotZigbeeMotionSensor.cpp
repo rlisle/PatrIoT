@@ -29,7 +29,7 @@
  * Constructor
  * @param name String name used to address the motion sensor.
  */
-ZigbeeMotion::ZigbeeContact(String name, String room, void (*handler)(int,int))
+ZigbeeMotion::ZigbeeMotion(String name, String room, void (*handler)(int,int))
         : Device(name, room, 'M', handler)
 {
     // Nothing to do
