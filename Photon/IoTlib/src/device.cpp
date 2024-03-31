@@ -171,14 +171,12 @@ int Device::count()
     return i;
 }
 
+// Receives MQTT messages that start with "patriot/zigbee/"
 void Device::mqttAll(String topic, String message)
 {
     for (Device *ptr = _devices; ptr != NULL; ptr = ptr->_next)
     {
-        // Currently only the Power plugin parses MIDI
-        if(ptr->_type == 'W') {
-            ptr->mqtt(topic, message);
-        }
+        ptr->mqtt(topic, message);
     }
 }
 

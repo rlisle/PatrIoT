@@ -234,11 +234,13 @@ void IoT::mqttHandler(char* rawTopic, byte* payload, unsigned int length)
     String topic(rawTopic);
     String lcTopic = topic.toLowerCase();
 
-    if(topic.startsWith("log")) {
+    if(topic.startsWith("log")) {       // Filter out Log messages
         return;
     }
     _mqttManager->parseMQTTMessage(lcTopic, lcMessage);
-    Device::mqttAll(lcTopic, lcMessage);
+    // This would appear to cause an infinite loop if the device issues any sort of MQTT message (including Log)
+    // So issue this from within MQTTManager if not log, etc.
+//    Device::mqttAll(lcTopic, lcMessage);
 }
 
 /**

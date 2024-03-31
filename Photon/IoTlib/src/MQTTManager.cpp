@@ -162,17 +162,20 @@ void MQTTManager::parseMQTTMessage(String lcTopic, String lcMessage)
 {
     _lastMQTTtime = Time.now();
 
-    if(lcTopic.startsWith(kPublishName)) {
-        String subtopics = lcTopic.substring(8);                    // Skip over "patriot/"
-        if(subtopics.length() > 0) {                                // Must have at least 1 subtopic
+    if(lcTopic.startsWith(kPublishName)) {                  // Exclude Log messages
+        String subtopics = lcTopic.substring(8);            // Skip over "patriot/"
+        if(subtopics.length() > 0) {                        // Must have at least 1 subtopic
             parsePatriotMessage(subtopics, lcMessage);
         }
     }
 }
 
 // Refer to Note "MQTT - Patriot"
+// Only patriot messages received, but lcTopic has "patriot/" removed
 void MQTTManager::parsePatriotMessage(String lcTopic, String lcMessage)
 {
+    Log.info("parsePatriotMessage(%s,%s)", lcTopic.c_str(), lcMessage.c_str());
+
     String subtopics[5];
     int start = 0;
     int end = lcTopic.indexOf('/');
@@ -319,8 +322,10 @@ void MQTTManager::parsePatriotMessage(String lcTopic, String lcMessage)
             }
 
         // ZIGBEE
-        } else if(subtopics[0] == "zigbee") {
-            //Ignore. MQTT is handled by the zigbee device
+        } else if(subtopics[0] == "zigbee" && numTopics > 1) {
+            Log.info("MQTTManager zigbee message: %s",lcMessage.c_str());
+            // Pass these messages to each device's MQTT handler (minus the leading patriot/)
+            Device::mqttAll(subtopics[1], lcMessage);
         }
     }
 }

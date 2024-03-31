@@ -39,30 +39,21 @@ void ZigbeeMotion::begin() {
     // Nothing to do
 }
 
+// Only subtopic following patriot/zigbee/ is passed.
+// This will be the lower cased device name
 void ZigbeeMotion::mqtt(String topic, String message) {
-    // Parse patriot/zigbee/<device> 
-    // {"battery":100,"battery_low":false,"linkquality":255,"occupancy":true,"tamper":false,"voltage":3400}
-    String subtopics[5];
-    int start = 0;
-    int end = topic.indexOf('/');
-    int numTopics = 0;
-    if(end > 0) { // Might be -1 if only 1 subtopic
-        do {
-            start = end+1;
-            end = topic.indexOf('/', start);
-            numTopics++;
-        } while(numTopics < 4 && end > 0);
-    }
-    subtopics[numTopics++] = topic.substring(start);  // Last one
-    
-    if(numTopics == 2 && subtopics[0] == "zigbee") {
-        Log.info("DEBUG: zigbee message received");
-        if(subtopics[1] == name()) {  
-            Log.info("Zigbee motion sensor message to us");
-            //TODO: locate "occupancy" 
+//    Log.info("ZigbeeMotion %s mqtt received: %s %s",name().c_str(),topic.c_str(),message.c_str());
+    if(topic.equalsIgnoreCase(name())) {  
+        Log.info("Zigbee motion sensor message to us %s",topic.c_str());
 
+        // Now parse message for specific fields
+        int occupancyIndex = message.indexOf("occupancy");
+        if(occupancyIndex > 0) {
+            String occupancy = message.substring(occupancyIndex+11,occupancyIndex+15); // "true" or "fals"
+            Log.info("occupancy = %s", occupancy.c_str());
+            _value = (occupancy == "true") ? 100 : 0;
         }
-    }  
+    }
 }
 
 /**

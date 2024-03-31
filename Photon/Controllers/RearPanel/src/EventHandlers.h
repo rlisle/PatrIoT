@@ -48,6 +48,15 @@ void handleOfficeMotion(int value, int oldValue) {
     }
 }
 
+void handleCoffeeMotion(int value, int oldValue) {
+    Log.info("RP handleCoffeeMotion %d", value);
+    if(value > 0 && oldValue == 0) {        // Movement
+        isTimingCoffeeMotion = true;
+    } else if(value == 0 && oldValue > 0) { // No movement
+        //nothing to do
+    }
+}
+
 void handleRampDoor(int value, int oldValue) {
     Log.info("RP handleRampDoor %d", value);
     if(value > 0 && oldValue == 0) {        // Opened

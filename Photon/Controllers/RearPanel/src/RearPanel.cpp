@@ -99,5 +99,8 @@ void setup() {
     // Zigbee Outlets
     Device::add(new ZigbeeOutlet("OfficeValence", "Office"));
 
+    // Zigbee Contact Switches
+    Device::add(new ZigbeeMotion("CoffeeMotion", "Office", handleCoffeeMotion));    //TODO: move to frontpanel
+
     setInitialState();
 }
