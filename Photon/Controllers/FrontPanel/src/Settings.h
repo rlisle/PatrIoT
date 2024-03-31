@@ -8,6 +8,7 @@
 
 int const frontDoorLightTimeout = 15*1000;
 int const livingRoomMotionTimeout = 3*1000;
+int const coffeeMotionTimeout = 3*1000;
 
 #define CURVE 2 // 0 = Linear, 1 = exponential, 2 = 50/50
 
@@ -22,7 +23,7 @@ SYSTEM_MODE(AUTOMATIC);
 int voltage = 0;
 bool isTimingLivingRoomMotion = false;
 bool isTimingFrontDoor = false;
-
+bool isTimingCoffeeMotion = false;
 
 void setupWifi() {
 //    WiFi.setCredentials(WIFI_SSID, WIFI_PASSWORD);

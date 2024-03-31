@@ -24,7 +24,6 @@ SYSTEM_MODE(AUTOMATIC);
 bool isTimingOfficeMotion;
 bool isTimingOfficeDoor = false;
 bool isTimingRampDoor = false;
-bool isTimingCoffeeMotion;
 
 void setupWifi() {
 //    WiFi.setCredentials(WIFI_SSID, WIFI_PASSWORD);

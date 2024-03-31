@@ -174,7 +174,7 @@ void MQTTManager::parseMQTTMessage(String lcTopic, String lcMessage)
 // Only patriot messages received, but lcTopic has "patriot/" removed
 void MQTTManager::parsePatriotMessage(String lcTopic, String lcMessage)
 {
-    Log.info("parsePatriotMessage(%s,%s)", lcTopic.c_str(), lcMessage.c_str());
+//    Log.info("parsePatriotMessage(%s,%s)", lcTopic.c_str(), lcMessage.c_str());
 
     String subtopics[5];
     int start = 0;
@@ -323,7 +323,7 @@ void MQTTManager::parsePatriotMessage(String lcTopic, String lcMessage)
 
         // ZIGBEE
         } else if(subtopics[0] == "zigbee" && numTopics > 1) {
-            Log.info("MQTTManager zigbee message: %s",lcMessage.c_str());
+//            Log.info("MQTTManager zigbee message: %s",lcMessage.c_str());
             // Pass these messages to each device's MQTT handler (minus the leading patriot/)
             Device::mqttAll(subtopics[1], lcMessage);
         }

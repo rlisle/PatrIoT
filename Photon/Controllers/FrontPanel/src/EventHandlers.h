@@ -19,6 +19,14 @@ void handleNextMinute() {
             updateLights();
         }
     }
+
+    if(isTimingCoffeeMotion) {
+        if(millis() > Device::msecsLastChange("CoffeeMotion") + coffeeMotionTimeout) {            
+            isTimingCoffeeMotion = false;
+            updateLights();
+        }
+    }
+
 }
 
 void handleFrontDoor(int value, int oldValue) {
@@ -50,6 +58,15 @@ void handleLivingRoomMotion(int value, int oldValue) {
 //        updateLights();     //TODO: unneeded now?
     } else if(value == 0 && oldValue > 0) { // No movement
 //        updateLights();     //TODO: unneeded now/
+    }
+}
+
+void handleCoffeeMotion(int value, int oldValue) {
+    Log.info("FP handleCoffeeMotion %d", value);
+    if(value > 0 && oldValue == 0) {        // Movement
+        isTimingCoffeeMotion = true;
+    } else if(value == 0 && oldValue > 0) { // No movement
+        //nothing to do
     }
 }
 

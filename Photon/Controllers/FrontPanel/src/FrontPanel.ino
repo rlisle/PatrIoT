@@ -170,6 +170,7 @@ void setup() {
     Device::add(new NCD16Light(3,  "Ceiling", "Living Room",0));      // W
     Device::add(new NCD16Light(14, "CabinetLamps", "Kitchen",0));     // R
 
+    // Zigbee Lights
     Device::add(new ZigbeeLight("NookLamp", "Living Room"));
     Device::add(new ZigbeeLight("BedroomLamp", "Bedroom"));
 
@@ -178,6 +179,9 @@ void setup() {
     Device::add(new NCD16Light(5, "OtherSide", "Outside",0));         // G
     Device::add(new NCD16Light(2, "FrontAwning", "Outside",0));       // Y
     Device::add(new NCD16Light(4, "FrontPorch", "Outside",0));        // W
+
+    // Zigbee Contact Switches
+    Device::add(new ZigbeeMotion("CoffeeMotion", "Office", handleCoffeeMotion));    //TODO: move to frontpanel
 
     // 12V Monitor (actually 14.27) with 10:1 R-Ladder
     // Adjust fullScale to reflect actual R-Ladder (36.9)
