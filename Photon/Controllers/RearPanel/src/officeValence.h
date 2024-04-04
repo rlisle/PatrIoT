@@ -9,7 +9,7 @@ void setOfficeValence() {
         percent = 100;
 
     } else if(is("Office")) {
-        percent = valuem1("Office");
+        percent = valuem1("Office") > 0 ? 100 : 0;
 
     } else switch(partOfDay()) {
         case Evening:

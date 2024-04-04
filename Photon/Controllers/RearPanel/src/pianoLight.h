@@ -16,8 +16,6 @@ void setPianoLight() {
 
     } else switch(partOfDay()) {
         case Evening:
-            percent = 50;
-            break;
         case Retiring:
         case Asleep:
         case AwakeEarly:

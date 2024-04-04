@@ -185,6 +185,8 @@ void Device::mqttAll(String topic, String message)
 
 String Device::calculateStatus() {
     String status = Time.timeStr() + ": ";
+
+    status += "POD"
     
     for (Device* ptr = _devices; ptr != NULL; ptr = ptr->_next) {
 
