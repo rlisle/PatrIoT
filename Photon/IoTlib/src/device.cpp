@@ -183,20 +183,46 @@ void Device::mqttAll(String topic, String message)
 
 // Particle.io Devices, Checklist, and Status variables
 
+String Device::calculateOnStatus() {
+    String status = "";
+    for (Device* ptr = _devices; ptr != NULL; ptr = ptr->_next) {
+        if(ptr->_type != 'X' && ptr->_value > 0) {     // Ignore checklist items
+            if(status != "") status += ", ";
+            status += String(ptr->_name);
+        }
+    }
+    if(status.length() >= particle::protocol:: MAX_VARIABLE_VALUE_LENGTH) {
+        return("Status variable is too long. Need to extend to a 2nd variable");
+    }
+    return status;
+}
+
+String Device::calculateOffStatus() {
+    String status = "";
+    for (Device* ptr = _devices; ptr != NULL; ptr = ptr->_next) {
+        if(ptr->_type != 'X' && ptr->_value == 0) {     // Ignore checklist items
+            if(status != "") status += ", ";
+            status += String(ptr->_name);
+        }
+    }
+    if(status.length() >= particle::protocol:: MAX_VARIABLE_VALUE_LENGTH) {
+        return("Status variable is too long. Need to extend to a 2nd variable");
+    }
+    return status;
+}
+
 String Device::calculateStatus() {
     String status = Time.timeStr() + ": ";
 
-    status += "POD"
+    status += "POD:" + String(partOfDay());
     
     for (Device* ptr = _devices; ptr != NULL; ptr = ptr->_next) {
 
         if(ptr->_type != 'X') {     // Ignore checklist items
+            status += ", ";
             status += String(ptr->_type)+":";
             status += String(ptr->_name);
             status += "="+String(ptr->_value);
-            if (ptr->_next != NULL) {
-                status += ",";
-            }
         }
     }
     if(status.length() >= particle::protocol:: MAX_VARIABLE_VALUE_LENGTH) {
@@ -214,6 +240,14 @@ void Device::expose()
     if(!Particle.variable(kChecklistVariableName, calculateChecklist))
     {
         Log.error("Error: Unable to expose " + kChecklistVariableName + " variable");
+    }
+    if(!Particle.variable(kOnStatusVariableName, Device::calculateOnStatus))
+    {
+        Log.error("Error: Unable to expose " + kStatusVariableName + " variable");
+    }
+    if(!Particle.variable(kOffStatusVariableName, Device::calculateOffStatus))
+    {
+        Log.error("Error: Unable to expose " + kStatusVariableName + " variable");
     }
     if(!Particle.variable(kStatusVariableName, Device::calculateStatus))
     {

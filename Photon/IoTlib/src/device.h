@@ -112,5 +112,7 @@ public:
 
     static String calculateChecklist();
     static String calculateStatus();
+    static String calculateOnStatus();
+    static String calculateOffStatus();
     static String calculateDevices();
 };
