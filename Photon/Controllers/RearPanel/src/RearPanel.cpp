@@ -100,4 +100,5 @@ void setup() {
     Device::add(new ZigbeeOutlet("OfficeValence", "Office"));
 
     setInitialState();
+    updateLights();
 }

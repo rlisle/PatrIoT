@@ -28,4 +28,5 @@ static const String kOffStatusVariableName     = "OffStatus";
 static const String kPublishName               = "patriot";
 static const String kSSIDFunctionName          = "setSSID";
 static const String kTimeZoneFunctionName      = "setTimezone";
+static const String kUpdateLightsFunctionName  = "updateAllLights";
 

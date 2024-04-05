@@ -109,6 +109,7 @@ public:
     static void expose();
     static int setSSID(String info);
     static int setTimeZone(String info);
+    static int updateAllLights(String info);
 
     static String calculateChecklist();
     static String calculateStatus();

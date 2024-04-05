@@ -47,7 +47,7 @@ void ZigbeeContact::mqtt(String topic, String message) {
         if(contactIndex > 0) {
             String contact = message.substring(contactIndex+9,contactIndex+13); // "true" or "fals"
             Log.info("contact = %s", contact.c_str());
-            _value = (contact == "true") ? 100 : 0;
+            _value = (contact == "true") ? 0 : 100;     // Inverted: closed == 0, open == 100
         }
     }
 }

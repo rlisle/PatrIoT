@@ -261,6 +261,10 @@ void Device::expose()
     {
         Log.error("Error: Unable to expose " + kTimeZoneFunctionName + " function");
     }
+    if(!Particle.function(kUpdateLightsFunctionName, Device::updateAllLights))
+    {
+        Log.error("Error: Unable to expose " + kUpdateLightsFunctionName + " function");
+    }
 }
 
 // Set SSID & Password info using CSL
@@ -286,6 +290,17 @@ int Device::setTimeZone(String info) {
     return 0;
 }
 
+// Update All Lights
+int Device::updateAllLights(String info) {
+    Log.info("Update all lights");
+    if(_anyChangeHandler != NULL) {
+        Log.info("Device::updateAllLights calling anyChangeHandler");
+        Device::_anyChangeHandler();
+    } else {
+        Log.info("anyChangeHandler is NULL");
+    }
+    return 0;
+}
 // The Devices variable is used by Alexa discovery and ReportState and iOS app.
 // It is a comma delimited list of <T>:<Name>
 // Note: Alexa skill hasn't been updated to support @<room>, so removing it for now.
