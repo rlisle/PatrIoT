@@ -181,7 +181,8 @@ void setup() {
     Device::add(new NCD16Light(4, "FrontPorch", "Outside",0));        // W
 
     // Zigbee Contact Switches
-    Device::add(new ZigbeeMotion("CoffeeMotion", "Office", handleCoffeeMotion));    //TODO: move to frontpanel
+    Device::add(new ZigbeeMotion("CoffeeMotion", "Office", handleCoffeeMotion));
+    Device::add(new ZigbeeContact("FrontDoor", "Living Room", handleFrontDoor));
 
     // 12V Monitor (actually 14.27) with 10:1 R-Ladder
     // Adjust fullScale to reflect actual R-Ladder (36.9)

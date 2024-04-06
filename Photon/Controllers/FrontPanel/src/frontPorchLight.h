@@ -8,6 +8,8 @@ void setFrontPorchLight() {
     if(is("Nighttime")) {
         if(is("Outside")) {
             percent = 100;
+        } else if(is("FrontDoor") || isTimingFrontDoor) {
+            percent = 100;
         } else switch(partOfDay()) {
             case Evening:
             case Retiring:
