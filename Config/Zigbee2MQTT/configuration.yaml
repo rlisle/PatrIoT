@@ -4,7 +4,8 @@ mqtt:
   base_topic: patriot/zigbee
   server: mqtt://localhost
 serial:
-  port: /dev/tty.usbserial-202311202101381
+#  port: /dev/tty.usbserial-202311202101381
+  port: /dev/tty.usbserial-8330
 advanced:
   network_key:
     - 22
@@ -46,4 +47,6 @@ devices:
   '0x00124b002c3a3fcd':
     friendly_name: OfficeValence
   '0x00124b002fa16de3':
-    friendly_name: 'CoffeeMotion'
+    friendly_name: CoffeeMotion
+  '0x00124b002c3a2843':
+    friendly_name: WorkBench
