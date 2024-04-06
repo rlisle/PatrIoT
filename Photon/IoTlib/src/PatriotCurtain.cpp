@@ -88,7 +88,7 @@ void Curtain::setValue(int percent) {
     Log.info("_updateMillis = %ld",_updateMillis);
 
     // Send HomeKit acknowledgement
-    IoT::publishMQTT("/ack/" + _name + "/set",String(percent));
+    IoT::publishMQTT("ack/" + _name + "/set",String(percent));
     
     // Send position updates
     IoT::publishMQTT(_name + "/get",String(percent));
