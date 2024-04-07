@@ -180,7 +180,7 @@ void setup() {
     Device::add(new NCD16Light(2, "FrontAwning", "Outside",0));       // Y
     Device::add(new NCD16Light(4, "FrontPorch", "Outside",0));        // W
 
-    // Zigbee Contact Switches
+    // Zigbee Motion Detectors & Contact Switches
     Device::add(new ZigbeeMotion("CoffeeMotion", "Office", handleCoffeeMotion));
     Device::add(new ZigbeeContact("FrontDoor", "Living Room", handleFrontDoor));
 

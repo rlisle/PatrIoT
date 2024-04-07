@@ -4,9 +4,9 @@ mqtt:
   base_topic: patriot/zigbee
   server: mqtt://localhost
 serial:
-#  port: /dev/tty.usbserial-202311202101381
   port: /dev/tty.usbserial-8330
 advanced:
+  pan_id: 49286
   network_key:
     - 22
     - 167
