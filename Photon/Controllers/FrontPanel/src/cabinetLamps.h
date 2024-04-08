@@ -12,7 +12,7 @@ void setCabinetLamps() {
         percent = value("Kitchen");
 
     } else if(is("CoffeeMotion") || isTimingCoffeeMotion) {
-        precent = 33;
+        percent = 33;
 
     } else if(is("Theatre")) {
         percent = 0;

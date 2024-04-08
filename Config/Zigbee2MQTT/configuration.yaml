@@ -30,14 +30,6 @@ advanced:
 device_options:
   legacy: false
 devices:
-  '0xb0ce1814000dcdd0':
-    friendly_name: LeftDeskLamp
-  '0xb0ce1814000dc56a':
-    friendly_name: RightDeskLamp
-  '0xb0ce1814000dc403':
-    friendly_name: NookLamp
-  '0xb0ce1814000db8e9':
-    friendly_name: BedroomLamp
   '0x00124b002a62f3dc':
     friendly_name: FrontDoor
   '0x00124b002a62f09e':
@@ -50,3 +42,9 @@ devices:
     friendly_name: CoffeeMotion
   '0x00124b002c3a2843':
     friendly_name: WorkBench
+  '0xb0ce1814000dcdd0':
+    friendly_name: DeskLampLeft
+  '0xb0ce1814000dc403':
+    friendly_name: NookLamp
+  '0xb0ce1814000dc56a':
+    friendly_name: DeskLampRight
