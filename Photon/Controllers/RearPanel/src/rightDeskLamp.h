@@ -18,6 +18,8 @@ void setRightDeskLamp() {
 
     } else switch(partOfDay()) {
         case AwakeEarly:
+        case Morning:
+        case Afternoon:
         case Evening:
             // if(is("RonHome")) {
                  percent = 100;
@@ -29,8 +31,6 @@ void setRightDeskLamp() {
             percent = 10;
             break;
         case Asleep:
-        case Morning:
-        case Afternoon:
             break;
     }
 //    if(percent != current) {
