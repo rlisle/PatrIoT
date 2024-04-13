@@ -8,11 +8,8 @@ void setLeftVerticalLights() {
     if(is("Cleaning")) {
         percent = 100;
 
-    // } else if(is("Couch")) {
-    //     percent = value("Couch");
-
     } else if(is("Theatre")) {
-        percent = 33;
+        percent = 0;
 
     } else switch(partOfDay()) {
         case Evening:
