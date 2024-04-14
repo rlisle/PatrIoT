@@ -266,11 +266,21 @@ void MQTTManager::parsePatriotMessage(String lcTopic, String lcMessage)
                 Log.info(_controllerName + ": free memory = %d", System.freeMemory());
             }
             
-        // QUERY/<controller | all>
+        // QUERY
         } else if(subtopics[0] == "query") {
             if(lcMessage == _controllerName || lcMessage == "all") {
                 Log.info(_controllerName + ": received query addressed to us");
                 Device::publishStates();
+            }
+            
+        // REFRESH
+        } else if(subtopics[0] == "refresh") {
+            if(lcMessage == _controllerName || lcMessage == "all") {
+                Log.info(_controllerName + ": received refresh addressed to us");
+                if(Device::_anyChangeHandler != NULL) {
+                    Log.info("Calling Device::anyChangeHandler");
+                    Device::_anyChangeHandler();
+                }
             }
             
             // RESET
