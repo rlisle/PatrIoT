@@ -1,6 +1,6 @@
 // FrontPanel Settings
 // Move the stuff that never changes here
-#define CONTROLLER_NAME "FrontPanel2"
+#define CONTROLLER_NAME "FrontPanel"
 #define MQTT_BROKER "192.168.0.33"
 #define PCA9685_ADDRESS 0x41       // Lowest jumper set
 //#define SWITCH_ADDRESS 0x20
