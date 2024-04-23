@@ -238,7 +238,7 @@ class NCD4Switch : public Device {
     void      notify();
 
  public:
-    NCD4Switch(int8_t switchIndex, String name, String room, void (*handler)(int,int));
+    NCD4Switch(int8_t switchIndex, String name, String room, void (*handler)(int,int) = NULL);
     void    loop();
 };
 
@@ -330,7 +330,7 @@ private:
     void      notify();
     
 public:
-    PIR(int pinNum, String name, String room, int timeoutSecs, void (*handler)(int,int));
+    PIR(int pinNum, String name, String room, int timeoutSecs, void (*handler)(int,int) = NULL);
 
     void begin();
     void loop();
@@ -402,7 +402,7 @@ class NCD4PIR : public Device {
     void    notify();
 
  public:
-    NCD4PIR(int8_t gpioIndex, String name, String room, int timeoutSecs, void (*handler)(int,int));
+    NCD4PIR(int8_t gpioIndex, String name, String room, int timeoutSecs, void (*handler)(int,int) = NULL);
     
     void    begin();
     void    reset();

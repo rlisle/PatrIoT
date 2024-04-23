@@ -128,8 +128,8 @@ void setup() {
     // Device::add(new Awning(2, "RearAwning", "Outside")); // 2x Relays: 2, 3
     
     // 4 GPIO
-    Device::add(new NCD4Switch(1, "OfficeDoor", "Office" /*, handleOfficeDoor*/));
-    Device::add(new NCD4PIR(3, "OfficeMotion", "Office", officeMotionTimeoutMsecs /*, handleOfficeMotion*/));
+    Device::add(new NCD4Switch(1, "OfficeDoor", "Office"));
+    Device::add(new NCD4PIR(3, "OfficeMotion", "Office", officeMotionTimeoutMsecs));
 
     // I2CPWM8W80C board
     // 8 Dimmers
@@ -147,7 +147,7 @@ void setup() {
     Device::add(new ZigbeeLight("RightDeskLamp", "Office"));
 
     // Zigbee Contact Switches
-    Device::add(new ZigbeeContact("RampDoor", "Office" /*, handleRampDoor*/));
+    Device::add(new ZigbeeContact("RampDoor", "Office"));
 
     // Zigbee Outlets
     Device::add(new ZigbeeOutlet("OfficeValence", "Office"));
