@@ -1,0 +1,176 @@
+{
+    "bridge": {
+        "name": "Homebridge CC4B",
+        "username": "0E:87:0C:34:43:36",
+        "port": 51656,
+        "pin": "548-95-253",
+        "advertiser": "avahi"
+    },
+    "log": {
+        "method": "file",
+        "path": "/Users/ronlisle/.homebridge/homebridge.log"
+    },
+    "accessories": [
+        {
+            "name": "AnyoneHome",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/anyonehome/set",
+                "getOn": "patriot/ack/anyonehome/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "BedroomLamp",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/bedroomlamp/set",
+                "getOn": "patriot/ack/bedroomlamp/set",
+                "setBrightness": "patriot/bedroomlamp/brightness",
+                "getBrightness": "patriot/ack/bedroomlamp/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "Couch",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/couch/set",
+                "getOn": "patriot/ack/couch/set",
+                "setBrightness": "patriot/couch/brightness",
+                "getBrightness": "patriot/ack/couch/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "FrontDoor",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/frontdoor/set",
+                "getOn": "patriot/ack/frontdoor/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "Nighttime",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/nighttime/set",
+                "getOn": "patriot/ack/nighttime/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "NookLamp",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/nooklamp/set",
+                "getOn": "patriot/ack/nooklamp/set",
+                "setBrightness": "patriot/nooklamp/brightness",
+                "getBrightness": "patriot/ack/nooklamp/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "Retiring",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/retiring/set",
+                "getOn": "patriot/ack/retiring/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "RonHome",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/ronhome/set",
+                "getOn": "patriot/ack/ronhome/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "ShelleyHome",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/shelleyhome/set",
+                "getOn": "patriot/ack/shelleyhome/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "Sink",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/sink/set",
+                "getOn": "patriot/ack/sink/set",
+                "setBrightness": "patriot/sink/brightness",
+                "getBrightness": "patriot/ack/sink/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "Sleeping",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/sleeping/set",
+                "getOn": "patriot/ack/sleeping/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "Test",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/test/set",
+                "getOn": "patriot/ack/test/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "Theatre",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/theatre/set",
+                "getOn": "patriot/ack/theatre/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "Workbench",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/workbench/set",
+                "getOn": "patriot/ack/workbench/set",
+                "setBrightness": "patriot/workbench/brightness",
+                "getBrightness": "patriot/ack/workbench/brightness"
+            },
+            "accessory": "mqttthing"
+        }
+    ],
+    "platforms": [
+        {
+            "name": "Config",
+            "port": 8581,
+            "auth": "form",
+            "theme": "auto",
+            "tempUnits": "f",
+            "lang": "auto",
+            "platform": "config"
+        }
+    ]
+}
