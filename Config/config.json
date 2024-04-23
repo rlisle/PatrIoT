@@ -34,6 +34,40 @@
             "accessory": "mqttthing"
         },
         {
+            "name": "CabinetLights",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/cabinetlights/set",
+                "getOn": "patriot/ack/cabinetlights/set",
+                "setBrightness": "patriot/cabinetlights/brightness",
+                "getBrightness": "patriot/ack/cabinetlights/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "Ceiling",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/ceiling/set",
+                "getOn": "patriot/ack/ceiling/set",
+                "setBrightness": "patriot/ceiling/brightness",
+                "getBrightness": "patriot/ack/ceiling/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "CoffeeMotion",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/coffeemotion/set",
+                "getOn": "patriot/ack/coffeemotion/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
             "name": "Couch",
             "type": "lightbulb",
             "url": "http://192.168.0.33:1883",
@@ -46,12 +80,118 @@
             "accessory": "mqttthing"
         },
         {
+            "name": "DoorSide",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/doorside/set",
+                "getOn": "patriot/ack/doorside/set",
+                "setBrightness": "patriot/doorside/brightness",
+                "getBrightness": "patriot/ack/doorside/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "FrontAwning",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/frontawning/set",
+                "getOn": "patriot/ack/frontawning/set",
+                "setBrightness": "patriot/frontawning/brightness",
+                "getBrightness": "patriot/ack/frontawning/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
             "name": "FrontDoor",
             "type": "switch",
             "url": "http://192.168.0.33:1883",
             "topics": {
                 "setOn": "patriot/frontdoor/set",
                 "getOn": "patriot/ack/frontdoor/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "FrontPorch",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/frontporch/set",
+                "getOn": "patriot/ack/frontporch/set",
+                "setBrightness": "patriot/frontporch/brightness",
+                "getBrightness": "patriot/ack/frontporch/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "KitchenCeiling",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/kitchenceiling/set",
+                "getOn": "patriot/ack/kitchenceiling/set",
+                "setBrightness": "patriot/kitchenceiling/brightness",
+                "getBrightness": "patriot/ack/kitchenceiling/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "LeftDeskLamp",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/leftdesklamp/set",
+                "getOn": "patriot/ack/leftdesklamp/set",
+                "setBrightness": "patriot/leftdesklamp/brightness",
+                "getBrightness": "patriot/ack/leftdesklamp/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "LeftTrim",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/lefttrim/set",
+                "getOn": "patriot/ack/lefttrim/set",
+                "setBrightness": "patriot/lefttrim/brightness",
+                "getBrightness": "patriot/ack/lefttrim/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "LeftVertical",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/leftvertical/set",
+                "getOn": "patriot/ack/leftvertical/set",
+                "setBrightness": "patriot/leftvertical/brightness",
+                "getBrightness": "patriot/ack/leftvertical/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "LivingRoomMotion",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/livingroommotion/set",
+                "getOn": "patriot/ack/livingroommotion/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "Loft",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/loft/set",
+                "getOn": "patriot/ack/loft/set",
+                "setBrightness": "patriot/loft/brightness",
+                "getBrightness": "patriot/ack/loft/brightness"
             },
             "accessory": "mqttthing"
         },
@@ -78,12 +218,172 @@
             "accessory": "mqttthing"
         },
         {
+            "name": "OfficeCeiling",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/officeceiling/set",
+                "getOn": "patriot/ack/officeceiling/set",
+                "setBrightness": "patriot/officeceiling/brightness",
+                "getBrightness": "patriot/ack/officeceiling/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "OfficeDoor",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/officedoor/set",
+                "getOn": "patriot/ack/officedoor/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "OfficeMotion",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/officemotion/set",
+                "getOn": "patriot/ack/officemotion/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "OfficeValence",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/officevalence/set",
+                "getOn": "patriot/ack/officevalence/set",
+                "setBrightness": "patriot/officevalence/brightness",
+                "getBrightness": "patriot/ack/officevalence/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "OtherSide",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/otherside/set",
+                "getOn": "patriot/ack/otherside/set",
+                "setBrightness": "patriot/otherside/brightness",
+                "getBrightness": "patriot/ack/otherside/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "Piano",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/piano/set",
+                "getOn": "patriot/ack/piano/set",
+                "setBrightness": "patriot/piano/brightness",
+                "getBrightness": "patriot/ack/piano/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "PlantLight",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/plantlight/set",
+                "getOn": "patriot/ack/plantlight/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "RampAwning",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/rampawning/set",
+                "getOn": "patriot/ack/rampawning/set",
+                "setBrightness": "patriot/rampawning/brightness",
+                "getBrightness": "patriot/ack/rampawning/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "RampDoor",
+            "type": "switch",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/rampdoor/set",
+                "getOn": "patriot/ack/rampdoor/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "RampPorch",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/rampporch/set",
+                "getOn": "patriot/ack/rampporch/set",
+                "setBrightness": "patriot/rampporch/brightness",
+                "getBrightness": "patriot/ack/rampporch/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "RearAwning",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/rearawning/set",
+                "getOn": "patriot/ack/rearawning/set",
+                "setBrightness": "patriot/rearawning/brightness",
+                "getBrightness": "patriot/ack/rearawning/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "RearPorch",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/rearporch/set",
+                "getOn": "patriot/ack/rearporch/set",
+                "setBrightness": "patriot/rearporch/brightness",
+                "getBrightness": "patriot/ack/rearporch/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
             "name": "Retiring",
             "type": "switch",
             "url": "http://192.168.0.33:1883",
             "topics": {
                 "setOn": "patriot/retiring/set",
                 "getOn": "patriot/ack/retiring/set"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "RightDeskLamp",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/rightdesklamp/set",
+                "getOn": "patriot/ack/rightdesklamp/set",
+                "setBrightness": "patriot/rightdesklamp/brightness",
+                "getBrightness": "patriot/ack/rightdesklamp/brightness"
+            },
+            "accessory": "mqttthing"
+        },
+        {
+            "name": "RightTrim",
+            "type": "lightbulb",
+            "url": "http://192.168.0.33:1883",
+            "topics": {
+                "setOn": "patriot/righttrim/set",
+                "getOn": "patriot/ack/righttrim/set",
+                "setBrightness": "patriot/righttrim/brightness",
+                "getBrightness": "patriot/ack/righttrim/brightness"
             },
             "accessory": "mqttthing"
         },

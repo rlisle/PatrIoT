@@ -105,7 +105,7 @@ void setup() {
     //Device::add(new MR24(0, 0, "CouchPresence", "Living Room"));    // Was D3, D4
 
     // Lights (default 2s curve 2)
-    Device::add(new Light(A2, "CouchCeiling", "Living Room"));
+    Device::add(new Light(A2, "Couch", "Living Room"));
     Device::add(new Light(A5, "LeftVertical", "Living Room"));
 }
 
