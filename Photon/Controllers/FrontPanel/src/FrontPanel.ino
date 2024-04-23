@@ -188,14 +188,14 @@ void setup() {
 
     // Inside Lights    TODO: set actual light #s     TODO: set wire colors
     Device::add(new NCD16Light(15, "KitchenCeiling", "Kitchen",0));   // R
-    Device::add(new NCD16Light(13, "SinkLamp", "Kitchen",0));         // B
+    Device::add(new NCD16Light(13, "Sink", "Kitchen",0));             // B
     Device::add(new NCD16Light(12, "LeftTrim", "Kitchen",0));         // G?
     Device::add(new NCD16Light(16, "RightTrim", "Living Room",0));    // Y?
     Device::add(new NCD16Light(3,  "Ceiling", "Living Room",0));      // W
     Device::add(new NCD16Light(14, "CabinetLamps", "Kitchen",0));     // R
 
     // Zigbee Lights
-    Device::add(new ZigbeeLight("NookLamp", "Living Room"));
+    Device::add(new ZigbeeLight("NookLamp", "Nook"));
     Device::add(new ZigbeeLight("BedroomLamp", "Bedroom"));
 
     // Zigbee Outlets
