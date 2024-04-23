@@ -174,6 +174,9 @@ void setup() {
     Device::add(new ZigbeeLight("NookLamp", "Living Room"));
     Device::add(new ZigbeeLight("BedroomLamp", "Bedroom"));
 
+    // Zigbee Outlets
+    Device::add(new ZigbeeLight("PlantLight", "Kitchen"));
+
     // Outside Lights
     Device::add(new NCD16Light(1, "DoorSide", "Outside",0));          // B
     Device::add(new NCD16Light(5, "OtherSide", "Outside",0));         // G

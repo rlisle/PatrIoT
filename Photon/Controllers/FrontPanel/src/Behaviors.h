@@ -24,6 +24,7 @@
 #include "leftTrimLights.h"
 #include "nookLamp.h"
 #include "otherSideLights.h"
+#include "plantLight.h"
 #include "rightTrimLights.h"
 #include "sinkLamp.h"
 
@@ -34,8 +35,6 @@ void updateLights() {
     // Turn on all outside lights also if it is nighttime
     // Assuming that not bedtime or sleeping when cleaning
     if(is("Cleaning")) {
-        Log.info("FP updateLights cleaning");
-
         // Turn off other statuses
         set("Retiring", 0);
         set("Sleeping", 0);
@@ -64,6 +63,7 @@ void updateLights() {
     setLeftTrimLights();
     setNookLamp();
     setOtherSideLights();
+    setPlantLight();
     setRightTrimLights();
     setSinkLamp();
 }

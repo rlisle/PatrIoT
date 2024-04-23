@@ -61,6 +61,7 @@ void setup() {
     Device::add(new Device("Nighttime", "Status", 'S', handleNighttime));
     Device::add(new Device("Office", "Status", 'L'));       // Office override
     Device::add(new Device("Outside", "Status", 'L'));      // Outside override
+    Device::add(new Device("Patio", "Status", 'L'));        // Porch and awning lights override
     Device::add(new Device("Piano", "Status", 'L'));        // PianoSpot override
     Device::add(new Device("Ramp", "Status", 'L'));         // Ramp override
     Device::add(new Device("Retiring", "Status", 'S', handleRetiring));
