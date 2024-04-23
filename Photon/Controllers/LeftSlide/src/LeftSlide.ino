@@ -45,8 +45,6 @@ Author: Ron Lisle
 #include <IoT.h>
 //#include "math.h"
 //#include <PatriotMR24.h>
-#include "Behaviors.h"
-#include "EventHandlers.h"
 
 #define LIVINGROOM_MOTION_TIMEOUT_MSECS 15*1000
 
@@ -103,7 +101,7 @@ void setup() {
 
     // Create Devices
     // Sensors
-    Device::add(new PIR(D19, "LivingRoomMotion", "Living Room", livingRoomMotionTimeoutSecs, handleLivingRoomMotion));
+    Device::add(new PIR(D19, "LivingRoomMotion", "Living Room", livingRoomMotionTimeoutSecs));
     //Device::add(new MR24(0, 0, "CouchPresence", "Living Room"));    // Was D3, D4
 
     // Lights (default 2s curve 2)
