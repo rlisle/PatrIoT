@@ -192,7 +192,7 @@ void setup() {
     Device::add(new NCD16Light(12, "LeftTrim", "Kitchen",0));         // G?
     Device::add(new NCD16Light(16, "RightTrim", "Living Room",0));    // Y?
     Device::add(new NCD16Light(3,  "Ceiling", "Living Room",0));      // W
-    Device::add(new NCD16Light(14, "CabinetLamps", "Kitchen",0));     // R
+    Device::add(new NCD16Light(14, "CabinetLights", "Kitchen",0));     // R
 
     // Zigbee Lights
     Device::add(new ZigbeeLight("NookLamp", "Nook"));
