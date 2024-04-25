@@ -1,5 +1,30 @@
 # RearPanel2
 
+ * For comprehensive documentation and examples, please visit:
+ * https://docs.particle.io/firmware/best-practices/firmware-template/
+
+* To update code:
+ *  1. Edit this code (VSCode or Xcode)
+ *  2. Update IoT if needed
+ * If USB connected using VSCode:
+ *  3. Put Photon into safe mode using buttons (breathing magenta):
+ *     Press both buttons, release reset, release setup when blinking magenta
+ *  4. "frp2" or "particle flash rear_panel2"
+ * If OTA
+ *  3. "frp"
+ * 
+ * Compiling: particle compile photon2 --target 5.6.0
+ * Flashing: particle flash rear_panel2 --target 5.6.0 or shortcut "frp"
+ * 
+ * 
+ * I2CIO4R4G5LE board connected via I2C
+ *   Relays: 0, 1 Curtain, 2, 3 unused
+ *   GPIO connector: GP4, Gnd, GP5, GP6, Gnd, GP7
+ *   GP4 = Door, GP5 = PIR Power, GP6 = PIR Input, GP7 n/c
+ * 
+ * I2CPWM8W80C  
+
+
 This firmware project was created using [Particle Developer Tools](https://www.particle.io/developer-tools/) and is compatible with all [Particle Devices](https://www.particle.io/devices/).
 
 Feel free to replace this README.md file with your own content, or keep it for reference.
