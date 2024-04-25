@@ -1,17 +1,43 @@
 # LeftSlide
 
 Controller mounted next to couch in the left slide.
-It controls both light switches.
+It controls both light switches: Couch overhead and Left Vertical
 
 It is accessible by removing the iPhone 6+
 
 ## Hardware
- * Hardware
- * 1. Photon
-  - "Couch" lights
-  - "Left Slide" Vertical Bar lights
-  - Left switch input
-  - Right switch input
+  New Photon 2 I/O Map
+    A2/D13 LED1 PWM output
+    A5/D14 LED2 PWM output
+    S4/D19 PIR sensor
+ 
+  Optional I/O
+     2nd PIR S3/D18
+ 
+  Previous I/O Map
+    Tx HR24 sensor Rx
+    Rx HR24 sensor Tx
+    A0 PIR sensor
+    A5 LED 2 PWM output
+    A7 (WKP) LED1 PWM output
+ 
+  Terminal Strip
+    1 +3.3v (top)
+    2 Gnd
+    3 +12v
+    4 -LED1
+    5 -LED2
+
+  Using SYSTEM_THREAD(ENABLED) is recommended,
+  and runs network on separate theread.
+  Using SYSTEM_MODE(SEMI_AUTOMATIC) we will
+  manually connect, but everything is automatic
+  after that. This allows running loop and MQTT
+  even if no internet available
+ 
+ History:
+   8/6/23 Convert to Photon 2, remove Hue
+   8/23/23 Embed plugins due to compiler issue
 
 ## Published Libraries
 This project uses the published Patriot libraries:
@@ -59,10 +85,7 @@ will also be sent to the Cloud for compilation.
 
 ## Compiling your project
 
-When you're ready to compile your project, make sure you have the correct Particle device target
-selected and run `particle compile <platform>` in the CLI or click the Compile button in the
-Desktop IDE. The following files in your project folder will be sent to the compile service:
-
-- Everything in the `/src` folder, including your `.ino` application file
-- The `project.properties` file for your project
-- Any libraries stored under `lib/<libraryname>/src`
+  To update Photon:
+    1. Edit this code
+    2. Update IoT and plugins if needed
+    3. "particle flash left_slide2 --target 5.6.0" or shortcut "fls"
