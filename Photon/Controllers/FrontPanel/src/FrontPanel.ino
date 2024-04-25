@@ -127,8 +127,6 @@
 #define CONTROLLER_NAME "FrontPanel"
 #define MQTT_BROKER "192.168.0.33"
 #define PCA9685_ADDRESS 0x41       // Lowest jumper set
-//#define SWITCH_ADDRESS 0x20
-//#define SWITCH_IOMAP 0xFF       // All 8 GPIOs are inputs
 
 int const frontDoorLightTimeout = 15*1000;
 int const livingRoomMotionTimeout = 3*1000;
@@ -162,29 +160,11 @@ void setup() {
 //    WiFi.selectAntenna(ANT_INTERNAL);
 //    WiFi.useDynamicIP();
     
-    // This also sets timezone and DST
+    // This also should set timezone and DST
     IoT::begin(MQTT_BROKER, CONTROLLER_NAME, MQTT_LOGGING);
 
     // Required by NCD8Light
     PCA9685::initialize(PCA9685_ADDRESS);
-
-    // Be careful that names don't collide with Homebridge (commands)
-    // Device::add(new Device("AnyoneHome", "Status", 'S'));
-    // Device::add(new Device("Bedroom", "Status", 'L'));
-    // Device::add(new Device("Cabinets", "Status", 'S'));
-    // Device::add(new Device("Cleaning", "Status", 'S'));
-    // Device::add(new Device("Kitchen", "Status", 'L'));
-    // Device::add(new Device("LivingRoomMotion", "Status", 'S', handleLivingRoomMotion));
-    // Device::add(new Device("Nighttime", "Status", 'S'));
-    // Device::add(new Device("Nook", "Status", 'L'));
-    // Device::add(new Device("OfficeMotion", "Status", 'S'));
-    // Device::add(new Device("Outside", "Status", 'S'));
-    // Device::add(new Device("Retiring", "Status", 'S', handleRetiring));
-    // Device::add(new Device("RonHome", "Status", 'S'));
-    // Device::add(new Device("ShelleyHome", "Status", 'S'));
-    // Device::add(new Device("Sink", "Status", 'L'));
-    // Device::add(new Device("Sleeping", "Status", 'S', handleSleeping));
-    // Device::add(new Device("Theatre", "Status", 'S'));
 
     // Inside Lights    TODO: set actual light #s     TODO: set wire colors
     Device::add(new NCD16Light(15, "KitchenCeiling", "Kitchen",0));   // R
@@ -217,30 +197,4 @@ void setup() {
     
 //    Device::add(new Power("Power", "Status"));
 
-    // Inputs - test/debug at this point
-    
-//    MCP23008::initialize(SWITCH_ADDRESS, SWITCH_IOMAP);
-
-//    Device::add(new NCD8Switch(1, "FrontDoor", "Living Room", handleFrontDoor));
-//    Device::add(new NCD8Switch(2, "Input2", "Living Room"));
-//    Device::add(new NCD8Switch(3, "Input3", "Living Room"));
-//    Device::add(new NCD8Switch(4, "Input4", "Living Room"));
-//    Device::add(new NCD8Switch(5, "Input5", "Living Room"));
-//    Device::add(new NCD8Switch(6, "Input6", "Living Room"));
-//    Device::add(new NCD8Switch(7, "Input7", "Living Room"));
-//    Device::add(new NCD8Switch(8, "Input8", "Living Room"));
-
-    //TODO: Initialize state: Nighttime, Sleeping, Doors, etc.
-
-
 }
-
-
-//void handleVoltageChanged(int volts) {
-//    // Do whatever is needed based on new volts value
-//    if(volts >= 12) {
-//        Log.info("Voltage is over 12: " + String(volts));
-//    } else {
-//        Log.info("Voltage is under 12: " + String(volts));
-//    }
-//}

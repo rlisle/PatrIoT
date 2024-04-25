@@ -5,81 +5,132 @@ It controls all switches on the front panel.
 
 It is accessible by removing the entire wood panel.
 
-## Hardware
- * Hardware
- * 1. Photon
- * 2. ControlEverything.com NCD8Relay Photon Controller
- * 3. ControlEverything.com NCD8Dimming I2C Controller
- * 4. I2C cable between boards
- * Photon board relay n/o connections 0x20
-   - Sink                 (1)
-   - Front Awning LEDs    (2)
-   - Right Trim           (3)
-   - Left Trim            (4)
-   - Ceiling              (5)
-   - Door Side Floods     (6)
-   - Other Side Floods    (7)
-   - Porch                (8)
- * I2C board relay n/o connections 0x21
-   - High Kitchen         (1)
-   - Kitchen Ceiling      (2)
-   - Vent Fan             (3)
-   - Vent Open            (4)
-   - Vent Close           (5)
-   - Front Awning Extend  (6)
-   - Front Awning Retract (7)
-   - unused               (8)
+## Compiling the project
 
-## Published Libraries
+To test compile, CD to FrontPanel then run "particle compile photon2"
+
+To update Photon:
+   1. Edit the code in FrontPanel.ino
+   2. Update IoT and plugins if needed
+
+   USB:
+   3. Put Photon into listen mode using buttons
+   4. "particle flash --usb <binname>"
+
+   OTA:
+   3. "particle flash front_panel2 --target 5.6.0" or "ffp"
+
+## Hardware
+NCD 16x Dimmer
+  1. DS Flood Lights
+  2. Awning Light
+  3. Ceiling
+  4. Porch Lights
+  5. ODS Flood Lights
+  6.
+  7.
+  8.
+  9.
+  10.
+  11.
+  12. Indirect
+  13. Cabinet
+  14. Sink
+  15. Ceiling
+  16. ?
+ 
+  PHOTON 2 PINS (in order on card)
+  Left side
+  RST - nc
+  3V3 - nc
+  Mode - nc
+  Gnd - nc              - 12v monitor R ladder gnd
+  D11/A0/ADC4           - 12v monitor R ladder
+  D12/A1/ADC5
+  D13/A2/ADC3/PWM
+  D14/A5/ADC0/PWM
+  D19/S4                - Front Door switch
+  D18/S3
+  D17/SCK
+  D15/MOSI/PWM          - Ceiling LEDs
+  D16/MISO/PWM          - Cabinets LEDs
+  D9/RX
+  D8/TX
+ 
+  Right Side
+  LI+ 
+  EN 
+  VSUB (5v)
+  D10
+  D7
+  D6
+  D5
+  D4
+  D3
+  D2
+  D1/A4/ADC1/PWM/Wire SCL   - NCD I2C
+  D0/A3/ADC2/Wire SDA       - NCD I2C
+ 
+  SWITCH WIRING
+  Top left:      tape label "Cabinet" -> D3 green -> gold
+  Top right:     no label (right trim) #4 yellow
+  2nd left:      tape label "Sink" #2 white
+  2nd middle:    tape label "Ceiling" (kitchen) #1 red
+  2nd right:     tape label "Indirect" (left trim) #5 blue
+  gnd            brown?
+
+  3rd left:      "Ceiling" D2 blue -> silver
+  3rd l-m:       "DS Flood Lights" #0 green
+  3rd r-m:       "ODS Flood Lights" #3 yellow
+  3rd right:     "Porch Lights" #7 red
+  bottom:        "Light" (awning) #6 white
+
+  TERMINAL STRIPS
+   Top: LED Drivers
+    *
+    *
+    *
+    *
+    *
+    *
+   Top 12v: Fuse #5 Purple/White
+   Gnd
+   Middle 12v: Fuse #2 Orange/White
+            also Fuse ? Purple/White marked Ceiling Power
+   Bottom 12v: Fuse #14 Gray/White Awning
+ 
+ Fuse Panel
+ 1. Brown/White     Bedroom Lts.
+ 2. Orange/White    Puck Lts (Ceiling Power)
+ 3. Green/White     Storage Lts
+ 4. Blue/White      Br Slide out
+ 5. Purple/White    Kitchen (Front Panel)
+ 6. Pink solid      Furnace
+ 7. Yellow/White    Fan
+ 8. Pink/White      Fuel Pump
+ 9. Blue solid      Water Pump
+ 10. Black/White    Monitor Panel
+ 11. Green/White    Ent
+ 12. n/c
+ 13. Red/White      Garage (RearPanel)
+ 14. Gray/White     Awning
+ 15. New Red        Pepwave
+ 16. n/c
+ 17. n/c
+ 18. n/c
+ 
+  Photon 2 is 0a10aced202194944a0446ac front_panel2
+  RSSI = -43dBm on 2/19/24
+ 
+  Original Photon was 430033000f47343339383037 FrontPanel
+  RSSI = -66dBm  on 10/1/22
+ 
+ History
+ 02/19/24 Upgrade to new architecture
+ 10/13/23 Upgrade NCD 8x dimmer with 16x board (12-bit)## Published Libraries
 This project uses the published Patriot libraries:
 * PatriotIoT (IoT)
 * PatriotLight
 * PatriotMotorized
 
 When any library is updated, rerun "particle library add <name>" from the project directory.
-
-## Code Organization
-
-#### ```/src``` folder:  
-Contains all the source files. 
-It should *not* be renamed. 
-Anything that is in this folder when you compile your project will be sent to our compile service
-and compiled into a firmware binary for the Particle device that you have targeted.
-
-If your application contains multiple files, they should all be included in the `src` folder.
-If your firmware depends on Particle libraries, those dependencies are specified in
-the `project.properties` file referenced below.
-
-#### ```.ino``` file:
-This file is the firmware that will run as the primary application on your Particle device.
-It contains a `setup()` and `loop()` function, and can be written in Wiring or C/C++.
-For more information about using the Particle firmware API to create firmware for your
-Particle device, refer to the [Firmware Reference](https://docs.particle.io/reference/firmware/)
-section of the Particle documentation.
-
-#### ```project.properties``` file:  
-This is the file that specifies the name and version number of the libraries that your project depends on.
-Dependencies are added automatically to your `project.properties` file when you add a library to a
-project using the `particle library add` command in the CLI or add a library in the Desktop IDE.
-
-## Adding additional files to the project
-
-#### Projects with multiple sources
-If you would like add additional files to your application, they should be added to the `/src` folder.
-All files in the `/src` folder will be sent to the Particle Cloud to produce a compiled binary.
-
-#### Projects with external unpublished libraries
-If your project includes a library that has not been registered in the Particle libraries system,
-you should create a new folder named `/lib/<libraryname>/src` under `/<project dir>` and add
-the `.h` and `.cpp` files for your library there. All contents of the `/lib` folder and subfolders
-will also be sent to the Cloud for compilation.
-
-## Compiling your project
-
-When you're ready to compile your project, make sure you have the correct Particle device target
-selected and run `particle compile <platform>` in the CLI or click the Compile button in the
-Desktop IDE. The following files in your project folder will be sent to the compile service:
-
-- Everything in the `/src` folder, including your `.ino` application file
-- The `project.properties` file for your project
-- Any libraries stored under `lib/<libraryname>/src`
