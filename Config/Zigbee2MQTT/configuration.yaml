@@ -1,10 +1,11 @@
 homeassistant: false
-permit_join: true
+permit_join: false   #set to true to add new zigbee devices
 mqtt:
   base_topic: patriot/zigbee
-  server: mqtt://localhost
+  server: mqtt://192.168.0.33
 serial:
   port: /dev/tty.usbserial-8330
+#  adapter: znp   #set to ezsp for -E adapter
 advanced:
   pan_id: 49286
   network_key:
@@ -43,8 +44,10 @@ devices:
   '0x00124b002c3a2843':
     friendly_name: WorkBench
   '0xb0ce1814000dcdd0':
-    friendly_name: DeskLampLeft
+    friendly_name: LeftDeskLamp
   '0xb0ce1814000dc403':
     friendly_name: NookLamp
   '0xb0ce1814000dc56a':
-    friendly_name: DeskLampRight
+    friendly_name: RightDeskLamp
+  '0xb0ce1814000db8e9':
+    friendly_name: BedroomLamp
