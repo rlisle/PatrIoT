@@ -2,6 +2,10 @@
 Left Slide Controller
 Description: This sketch controls the 2 lights and sensors in the left slide.
 Author: Ron Lisle
+
+D19 (A0) PIR LivingRoomMotion
+D13 (A2) Light Couch
+D14 (A5) Light LeftVertical
  */
 
 #include <IoT.h>
