@@ -6,7 +6,7 @@
   "dependencies": {
     "ask-sdk": "^2.10.0",
     "bluebird": "^3.7.2",
-    "particle-api-js": "8.0.0"
+    "particle-api-js": "10.4.3"
   },
   "devDependencies": {
     "chai": "^4.3.0",
